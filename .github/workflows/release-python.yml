@@ -14,7 +14,7 @@ on:
 
 jobs:
   release:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: fail if neither raiwidgets nor wrapped-flask
@@ -46,14 +46,6 @@ jobs:
           yarn buildall
       - name: build wheel
         run: python setup.py sdist bdist_wheel
-        working-directory: ${{ github.event.inputs.packageDirectory }}
-
-      # run tests before publishing to PyPI
-      - name: install wheel locally
-        run: find ./dist/ -name '*.whl' -exec pip install {} \;
-        working-directory: ${{ github.event.inputs.packageDirectory }}
-      - name: run tests
-        run: pytest ./tests/
         working-directory: ${{ github.event.inputs.packageDirectory }}
 
       # publish to PyPI
