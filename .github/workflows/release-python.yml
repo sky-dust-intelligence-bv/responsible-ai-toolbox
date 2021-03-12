@@ -33,9 +33,13 @@ jobs:
         run: |
           yarn install
       - name: auto version
-        if: ${{ github.event.inputs.packageDirectory == 'raiwidgets' }}
+        if: ${{ github.event.inputs.packageDirectory == 'raiwidgets' && github.event.inputs.pypiType == 'Test' }}
         run: |
           yarn auto-version -r
+      - name: auto version
+        if: ${{ github.event.inputs.packageDirectory == 'raiwidgets' && github.event.inputs.pypiType == 'Prod' }}
+        run: |
+          yarn auto-version
       - name: build typescript
         run: |
           yarn buildall
