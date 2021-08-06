@@ -1256,14 +1256,8 @@ export const bostonCounterfactualData: ICounterfactualData = {
     ]
   ],
   desired_class: "opposite",
-  feature_names: ["age", "capital-gain", "capital-loss", "hours-per-week"],
-  feature_names_including_target: [
-    "age",
-    "capital-gain",
-    "capital-loss",
-    "hours-per-week",
-    "income"
-  ],
+  feature_names: ["CRIM", "ZN", "INDUS", "CHAS"],
+  feature_names_including_target: ["CRIM", "ZN", "INDUS", "CHAS", "y"],
   local_importance: [
     [
       -0.20821475752391416, -0.22963955590635177, -0.08919800506838538,
